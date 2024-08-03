@@ -1,6 +1,7 @@
 import { Header } from "antd/es/layout/layout";
 import { Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
+import s from "./MyHeader.module.scss";
 
 interface MenuItem {
   key: string;
@@ -10,39 +11,27 @@ interface MenuItem {
 const MyHeader = () => {
   const navigate = useNavigate();
   const locate = useLocation();
-
   const curentPath = locate.pathname;
 
-  const items: MenuItem[] = ["Combat", "Statistic"].map((key) => ({
-    key: `/${key}`,
-    label: `${key}`,
-  }));
-
+  const items: MenuItem[] = [
+    { label: "Combat", key: "/" },
+    { label: "Statistic", key: "/Statistic" },
+  ];
   const routeSwitch = ({ key }: MenuItem) => {
     navigate(key);
   };
 
   return (
-    <Header
-      style={{
-        display: "flex",
-        alignItems: "center",
-        zoom: "1.4",
-      }}
-    >
+    <Header className={s.header}>
       <Menu
+        className={s.menu}
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={[curentPath]}
         items={items}
         onClick={routeSwitch}
-        style={{
-          flex: 1,
-          minWidth: 0,
-          zoom: "1.4",
-          justifyContent: "center",
-        }}
       />
+      <div className={s.balance}></div>
     </Header>
   );
 };
