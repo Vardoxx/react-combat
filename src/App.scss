@@ -1,0 +1,55 @@
+.logo_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 450px;
+  position: relative;
+
+  border: 10px solid #8de6ffe8;
+  border-radius: 50%;
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.63);
+
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 28, 36, 0.7),
+    rgba(119, 136, 141, 0.822)
+  );
+
+  .value_output {
+    color: white;
+    position: absolute;
+    top: 10px;
+  }
+
+  @keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .logo {
+      transition: filter 0.5s ease-in;
+      width: 300px;
+      /* Изменено время анимации с 5s на 10s */
+      animation: logo-spin infinite 5s ease-in-out;
+    }
+
+    .logo:hover {
+      filter: drop-shadow(0 0 2em #61dafb91);
+      width: 340px;
+      /* Изменено время анимации с 5s на 15s */
+      animation: logo-spin infinite 1s linear;
+    }
+
+    .logo:active {
+      filter: none;
+      opacity: 0.8;
+      width: 320px;
+    }
+  }
+}
