@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import incrementToClick from "./sliced/incrementToClick";
+import incrementToClick from "./sliced/incrementToClick.slice";
 
 export const store = configureStore({
   reducer: {

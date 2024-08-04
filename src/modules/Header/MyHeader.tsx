@@ -1,10 +1,11 @@
 import { Header } from "antd/es/layout/layout";
+import { LvlValue, BalanceValue } from "./components/ValuesOutput/ValuesOutput";
 import { Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../store/store";
-import { increment } from "../../store/sliced/incrementToClick";
+import { useDispatch } from "react-redux";
+
+import { increment } from "../../store/sliced/incrementToClick.slice";
 import s from "./MyHeader.module.scss";
 
 interface MenuItem {
@@ -21,9 +22,6 @@ const MyHeader = () => {
   const locate = useLocation();
 
   const curentPath = locate.pathname;
-  const balanseValue = useSelector(
-    (state: RootState) => state.clickToEarn.value
-  );
   const dispatch = useDispatch();
 
   const items: MenuItem[] = [
@@ -52,7 +50,8 @@ const MyHeader = () => {
         items={items}
         onClick={routeSwitch}
       />
-      <input className={s.balance} value={balanseValue} />
+      <BalanceValue />
+      <LvlValue />
     </Header>
   );
 };
