@@ -1,4 +1,5 @@
 import { Header } from "antd/es/layout/layout";
+import LvlValue from "./components/LvlValue";
 import { Menu } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -53,6 +54,7 @@ const MyHeader = () => {
         onClick={routeSwitch}
       />
       <input className={s.balance} value={balanseValue} />
+      <LvlValue />
     </Header>
   );
 };
