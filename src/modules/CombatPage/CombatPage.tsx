@@ -2,7 +2,7 @@ import reactLogo from "./img/react.svg";
 import s from "./CombatPage.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { increment } from "../../store/sliced/incrementToClick";
+import { increment } from "../../store/sliced/incrementToClick.slice";
 
 const CombatPageModule = () => {
   useSelector((state: RootState) => state.clickToEarn.value);
